@@ -13,22 +13,22 @@ const doneTodo= () => {
     const valueInLocalStorage= JSON.stringify(todoList);
     console.log(valueInLocalStorage);
     
-    window.localStorage.setItem('myListTodo', valueInLocalStorage)
+    window.localStorage.setItem('myListTodo', valueInLocalStorage);
+    const getListTodo= window.localStorage.getItem('myListTodo');
+    const originalValue= JSON.parse(getListTodo);
+    console.log(originalValue);
+    
+    
+    const listTodoMap= originalValue.map((values) =>{
+        
+        testList.appendChild(document.createTextNode(`${values}`));
+        
+    
+        
+        
+        
+    })
 }
-const getListTodo= window.localStorage.getItem('myListTodo');
-const originalValue= JSON.parse(getListTodo);
-console.log(originalValue);
-
-
-const listTodoMap= originalValue.map((values) =>{
-    
-    testList.appendChild(document.createTextNode(`${values}`));
-    
-    
-    
-    
-    
-})
 
 addTodo.addEventListener('click', doneTodo);
 
@@ -65,6 +65,7 @@ cancelar.addEventListener('click',() =>{
         document.getElementById('list-task').style.display= 'none'
     })
     
+
     
     
     
@@ -76,6 +77,7 @@ cancelar.addEventListener('click',() =>{
     
     
     addTodo.addEventListener('click',() =>{
+        
         document.getElementById('dias').style.display= 'none'
         
         document.getElementById('list-task').style.display= 'flex'
